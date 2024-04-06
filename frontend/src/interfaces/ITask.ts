@@ -1,3 +1,4 @@
 export default interface ITask {
-    title:string
+    title:string;
+    onclick:()=>void;
 }

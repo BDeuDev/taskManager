@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const TaskContainer= () =>{
     const [formData, setFormData] = useState<any[]>([]);
-
+    const [isValid,setIsValid] = useState(false)
     useEffect(() => {
         const fetchData = async () => {
           try {
@@ -29,11 +29,13 @@ const TaskContainer= () =>{
       });
 
     return (
-        <div className="h-screen w-full flex flex-wrap justify-center items-center font-raleway">
-            {formData?.map(task => (
+    
+    <div className="h-screen w-full flex flex-wrap justify-center items-center font-raleway">
+            {formData.length > 0 ? formData?.map(task => (
                 <Task key={task.id} title={task.title}/>
-            ))}
+            )): <div className="absolute top-0 left-0"></div>}
         </div>
+    
     )
 } 
 export default TaskContainer;

@@ -19,6 +19,7 @@ const Task = database_1.default.define('Task', {
     completed: {
         type: sequelize_1.DataTypes.BOOLEAN,
         allowNull: false,
+        defaultValue: false,
     }
 }, {
     modelName: 'Task',
