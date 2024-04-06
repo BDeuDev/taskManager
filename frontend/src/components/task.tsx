@@ -21,7 +21,7 @@ const Task: React.FC<ITask> = ({ title,onclick}) => {
                         sx={{
                             color: common['black'],
                             '&.Mui-checked': {
-                                color: green['900'],
+                                color: green['500'],
                             },
                         }}
                     />
