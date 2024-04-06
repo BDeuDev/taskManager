@@ -1,4 +1,5 @@
 export default interface ITask {
     title:string;
-    onclick:()=>void;
+   /*  onclick:()=>void; */
+   keynew:number | null;
 }

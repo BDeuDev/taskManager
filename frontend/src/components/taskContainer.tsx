@@ -4,7 +4,6 @@ import axios from 'axios';
 
 const TaskContainer= () =>{
     const [formData, setFormData] = useState<any[]>([]);
-
     useEffect(() => {
         const fetchData = async () => {
           try {
@@ -12,7 +11,7 @@ const TaskContainer= () =>{
             
             if (response.status === 200) {          
               setFormData(response.data)
-              console.log(response.data)
+              
             } else {
               console.error('Error al iniciar sesion')
             }
@@ -32,7 +31,7 @@ const TaskContainer= () =>{
     
     <div className="h-screen w-full flex flex-wrap justify-center items-center font-raleway">
             {formData.length > 0 ? formData?.map(task => (
-                <Task key={task.id} title={task.title} /* onclick={} *//>
+                <Task key={task.id} title={task.title} keynew={task.id}/* onclick={} *//>
             )): <div className="absolute top-0 left-0"></div>}
         </div>
     
