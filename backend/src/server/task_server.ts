@@ -20,11 +20,29 @@ export async function newTask(title:string,completed:boolean) {
         console.error(error)
     }
 }
-export async function editCompleted(title:string) {
+export async function editCompleted(id:number) {
     try {
-        const task = await Task.findAll({where:{title:title}})
+        const completed = true;
+        const task = await Task.findByPk(id)
+        if(!task){
+            return { err: `Task ${id} not found` };
+        }
+        await task.update({completed});
         return task;
     } catch (error) {
         console.error(error)
     }
 }
+export async function deleteUserById(userId:any) {
+    try {
+      const task = await Task.findByPk(userId);
+      if (!task) {
+        return { err: `Task ${userId} not found` };
+      }
+      await task.destroy();
+      return {success:true}
+    } catch (error) {
+      console.error('Error al eliminar el usuario:', error);
+      throw error;
+    }
+  }

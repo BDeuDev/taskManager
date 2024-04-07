@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.editCompleted = exports.newTask = exports.getTasks = void 0;
+exports.deleteUserById = exports.editCompleted = exports.newTask = exports.getTasks = void 0;
 const task_1 = __importDefault(require("../models/task"));
 function getTasks() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -45,10 +45,15 @@ function newTask(title, completed) {
     });
 }
 exports.newTask = newTask;
-function editCompleted(title) {
+function editCompleted(id) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const task = yield task_1.default.findAll({ where: { title: title } });
+            const completed = true;
+            const task = yield task_1.default.findByPk(id);
+            if (!task) {
+                return { err: `Task ${id} not found` };
+            }
+            yield task.update({ completed });
             return task;
         }
         catch (error) {
@@ -57,3 +62,20 @@ function editCompleted(title) {
     });
 }
 exports.editCompleted = editCompleted;
+function deleteUserById(userId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const task = yield task_1.default.findByPk(userId);
+            if (!task) {
+                return { err: `Task ${userId} not found` };
+            }
+            yield task.destroy();
+            return { success: true };
+        }
+        catch (error) {
+            console.error('Error al eliminar el usuario:', error);
+            throw error;
+        }
+    });
+}
+exports.deleteUserById = deleteUserById;

@@ -3,8 +3,8 @@ import { Request, Response } from 'express';
 
 export default async function completeTask(req:Request,res:Response) {
     try {
-        const {title,completed} = req.body;
-        await editCompleted(title)
+        const id = parseInt(req.params.id)
+        await editCompleted(id)
             .then(result => res.status(200).json(result))
             .catch(err => res.status(400).json(err))
     } catch (error) {

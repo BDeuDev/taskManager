@@ -10,17 +10,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const task_server_1 = require("../server/task_server");
-function completeTask(req, res) {
+function deleteTask(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const id = parseInt(req.params.id);
-            yield (0, task_server_1.editCompleted)(id)
-                .then(result => res.status(200).json(result))
-                .catch(err => res.status(400).json(err));
+            console.log(id);
+            yield (0, task_server_1.deleteUserById)(id)
+                .then(tasks => res.status(200).json(tasks))
+                .catch(err => res.status(401).json(err));
         }
         catch (error) {
+            console.error(error);
             res.status(500).json(error);
         }
     });
 }
-exports.default = completeTask;
+exports.default = deleteTask;
