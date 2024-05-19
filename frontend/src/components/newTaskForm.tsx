@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import IForm from "../interfaces/IForm";
+import { VITE_URL_BASE } from "../config/config";
 
 
 const Form:React.FC<IForm> = ({title,name,h1Title}) => {
@@ -16,7 +17,7 @@ const Form:React.FC<IForm> = ({title,name,h1Title}) => {
       const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-          const response = await axios.post('http://localhost:3000/api/tasks', formData);
+          const response = await axios.post(`${VITE_URL_BASE}/tasks`, formData);
           if (response.status === 200) {
             //agregar modal
           } 

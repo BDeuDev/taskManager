@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import Task from "./task";
 import axios from 'axios';
+import { VITE_URL_BASE } from "../config/config";
 
 const TaskContainer= () =>{
     const [formData, setFormData] = useState<any[]>([]);
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get('http://localhost:3000/api/tasks');
+            const response = await axios.get(`${VITE_URL_BASE}/tasks`);
             
             if (response.status === 200) {          
               setFormData(response.data);

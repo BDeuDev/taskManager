@@ -4,12 +4,13 @@ import { common, green } from '@mui/material/colors';
 import ITask from '../interfaces/ITask';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
+import { VITE_URL_BASE } from '../config/config';
 
 const Task: React.FC<ITask> = ({ title,id,completed}) => {
   // Función para manejar el clic en el IconButton
   const deleteTask = async() => {
     try {
-        const response = await axios.delete(`http://localhost:3000/api/tasks/${id}`);
+        const response = await axios.delete(`${VITE_URL_BASE}/tasks/${id}`);
         if(response.status === 200){
             console.log('borrado')
         }
@@ -19,7 +20,7 @@ const Task: React.FC<ITask> = ({ title,id,completed}) => {
   };
   const completeTask = async() => {
     try {
-        const response = await axios.put(`http://localhost:3000/api/tasks/${id}`);
+        const response = await axios.put(`${VITE_URL_BASE}/tasks/${id}`);
         if(response.status === 200){
             console.log('completada')
            await deleteTask()
