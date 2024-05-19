@@ -10,7 +10,7 @@ const TaskContainer= () =>{
             const response = await axios.get('http://localhost:3000/tasks');
             
             if (response.status === 200) {          
-              setFormData(response.data)
+              setFormData(response.data);
             } else {
               console.error('Error al iniciar sesion')
             }

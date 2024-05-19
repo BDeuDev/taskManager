@@ -1,8 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import * as dotenv from 'dotenv';
-import taskRoutes from './routes/taskRoutes';
 dotenv.config();
+import taskRoutes from './routes/taskRoutes';
+
 
 const app = express();
 

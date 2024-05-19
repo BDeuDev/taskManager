@@ -1,5 +1,6 @@
 import { Sequelize } from 'sequelize';
 import * as configData from './config.json';
+import { DB_DATABASE, DB_DIALECT, DB_HOST, DB_PASSWORD, DB_USERNAME } from './config';
 
 const config: any = configData;
 
@@ -7,11 +8,11 @@ const env = process.env.NODE_ENV ?? 'development';
 const { username, password, database, host, dialect } = config[env];
 
 const sequelize = new Sequelize({
-  dialect: dialect,
-  host: host,
-  username: username,
-  password: password,
-  database: database,
+  dialect: DB_DIALECT,
+  host: DB_HOST,
+  username: DB_USERNAME,
+  password: DB_PASSWORD,
+  database: DB_DATABASE,
 });
 
 export default sequelize;

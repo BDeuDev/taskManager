@@ -26,14 +26,15 @@ var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
 const configData = __importStar(require("./config.json"));
+const config_1 = require("./config");
 const config = configData;
 const env = (_a = process.env.NODE_ENV) !== null && _a !== void 0 ? _a : 'development';
 const { username, password, database, host, dialect } = config[env];
 const sequelize = new sequelize_1.Sequelize({
-    dialect: dialect,
-    host: host,
-    username: username,
-    password: password,
-    database: database,
+    dialect: config_1.DB_DIALECT,
+    host: config_1.DB_HOST,
+    username: config_1.DB_USERNAME,
+    password: config_1.DB_PASSWORD,
+    database: config_1.DB_DATABASE,
 });
 exports.default = sequelize;
