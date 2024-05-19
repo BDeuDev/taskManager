@@ -12,11 +12,11 @@ const Form:React.FC<IForm> = ({title,name,h1Title}) => {
           [event.target.name]: event.target.value
         });
       };
-    console.log(formData)
+
       const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-          const response = await axios.post('https://task-manager-backend-nine.vercel.app/api/tasks', formData);
+          const response = await axios.post('http://localhost:3000/api/tasks', formData);
           if (response.status === 200) {
             //agregar modal
           } 

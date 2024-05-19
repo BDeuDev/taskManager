@@ -8,5 +8,13 @@ const sequelize = new sequelize_1.Sequelize({
     username: config_1.DB_USERNAME,
     password: config_1.DB_PASSWORD,
     database: config_1.DB_DATABASE,
+    protocol: 'postgres',
+    logging: false,
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
+    }
 });
 exports.default = sequelize;
