@@ -5,16 +5,18 @@ const config_1 = require("./config");
 const sequelize = new sequelize_1.Sequelize({
     dialect: config_1.DB_DIALECT,
     host: config_1.DB_HOST,
+    port: config_1.DB_PORT,
     username: config_1.DB_USERNAME,
     password: config_1.DB_PASSWORD,
     database: config_1.DB_DATABASE,
-    protocol: 'postgres',
+    dialectModule: require('pg'),
     logging: false,
     dialectOptions: {
-        ssl: {
-            require: true,
-            rejectUnauthorized: false
-        }
+        timezone: config_1.DB_TIMEZONE
+    },
+    define: {
+        freezeTableName: true,
+        timestamps: false
     }
 });
 exports.default = sequelize;
