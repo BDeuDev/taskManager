@@ -9,7 +9,7 @@ const Task: React.FC<ITask> = ({ title,id,completed}) => {
   // Función para manejar el clic en el IconButton
   const deleteTask = async() => {
     try {
-        const response = await axios.delete(`http://localhost:3000/api/tasks/${id}`);
+        const response = await axios.delete(`https://task-manager-backend-nine.vercel.app//api/tasks/${id}`);
         if(response.status === 200){
             console.log('borrado')
         }
@@ -19,7 +19,7 @@ const Task: React.FC<ITask> = ({ title,id,completed}) => {
   };
   const completeTask = async() => {
     try {
-        const response = await axios.put(`http://localhost:3000/api/tasks/${id}`);
+        const response = await axios.put(`https://task-manager-backend-nine.vercel.app//api/tasks/${id}`);
         if(response.status === 200){
             console.log('completada')
            await deleteTask()
