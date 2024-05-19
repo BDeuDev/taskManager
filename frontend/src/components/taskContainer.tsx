@@ -7,7 +7,7 @@ const TaskContainer= () =>{
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get('https://task-manager-backend-nine.vercel.app//api/tasks');
+            const response = await axios.get('https://task-manager-backend-nine.vercel.app/api/tasks');
             
             if (response.status === 200) {          
               setFormData(response.data);
