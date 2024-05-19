@@ -16,7 +16,7 @@ const Form:React.FC<IForm> = ({title,name,h1Title}) => {
       const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-          const response = await axios.post('http://localhost:3000/tasks', formData);
+          const response = await axios.post('http://localhost:3000/api/tasks', formData);
           if (response.status === 200) {
             //agregar modal
           } 

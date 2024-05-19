@@ -7,7 +7,7 @@ const TaskContainer= () =>{
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get('http://localhost:3000/tasks');
+            const response = await axios.get('http://localhost:3000/api/tasks');
             
             if (response.status === 200) {          
               setFormData(response.data);

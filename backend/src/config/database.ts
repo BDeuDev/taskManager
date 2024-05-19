@@ -1,11 +1,5 @@
 import { Sequelize } from 'sequelize';
-import * as configData from './config.json';
 import { DB_DATABASE, DB_DIALECT, DB_HOST, DB_PASSWORD, DB_USERNAME } from './config';
-
-const config: any = configData;
-
-const env = process.env.NODE_ENV ?? 'development';
-const { username, password, database, host, dialect } = config[env];
 
 const sequelize = new Sequelize({
   dialect: DB_DIALECT,
