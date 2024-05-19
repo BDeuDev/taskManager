@@ -12,7 +12,7 @@ const sequelize = new sequelize_1.Sequelize({
     dialectModule: require('pg'),
     logging: false,
     dialectOptions: {
-        timezone: config_1.DB_TIMEZONE
+        timezone: 'UTC'
     },
     define: {
         freezeTableName: true,
