@@ -1,7 +1,6 @@
 import { Dialect } from 'sequelize';
 import { getEnvVariable } from '../utils/getEnvVariable';
 
-
 export const DB_DIALECT = getEnvVariable('DB_DIALECT') as Dialect;
 export const DB_HOST = getEnvVariable('DB_HOST') ;
 export const DB_USERNAME = getEnvVariable('DB_USERNAME');
