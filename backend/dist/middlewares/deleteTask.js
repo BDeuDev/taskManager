@@ -14,7 +14,6 @@ function deleteTask(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const id = parseInt(req.params.id);
-            console.log(id);
             yield (0, task_server_1.deleteUserById)(id)
                 .then(tasks => res.status(200).json(tasks))
                 .catch(err => res.status(401).json(err));
