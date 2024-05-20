@@ -29,12 +29,11 @@ function getTasks() {
     });
 }
 exports.getTasks = getTasks;
-function newTask(title, completed) {
+function newTask(title) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const newTask = yield task_1.default.create({
                 title,
-                completed,
             });
             if (newTask)
                 return { state: 'Task created successfuly' };

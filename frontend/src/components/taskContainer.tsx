@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import Task from "./task";
 import axios from 'axios';
 import { VITE_URL_BASE } from "../config/config";
-
+console.log(VITE_URL_BASE)
 const TaskContainer= () =>{
     const [formData, setFormData] = useState<any[]>([]);
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get(`${VITE_URL_BASE}/tasks`);
+            const response = await axios.get(`https://task-manager-liart-gamma.vercel.app/api/tasks`);
             
             if (response.status === 200) {          
               setFormData(response.data);
@@ -22,7 +22,7 @@ const TaskContainer= () =>{
         const timer = setTimeout(() => {
     
           fetchData()
-        }, 1000);
+        }, 5000);
     
         return () => clearTimeout(timer);
       });

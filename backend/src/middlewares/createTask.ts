@@ -3,8 +3,8 @@ import { Request, Response } from 'express';
 
 export default async function createTask(req:Request,res:Response) {
     try {
-        const {title,completed} =req.body
-        await newTask(title,completed)
+        const {title} =req.body
+        await newTask(title)
             .then(result => res.status(200).json(result))
             .catch(err => res.status(400).json(err))
     } catch (error) {

@@ -9,11 +9,10 @@ export async function getTasks() {
         console.error(error)
     }
 }
-export async function newTask(title:string,completed:boolean) {
+export async function newTask(title:string) {
     try {
         const newTask = await Task.create({
             title,
-            completed,
           });
           if(newTask) return {state:'Task created successfuly'}
     } catch (error) {

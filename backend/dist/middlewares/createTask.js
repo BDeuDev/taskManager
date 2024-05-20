@@ -13,8 +13,8 @@ const task_server_1 = require("../server/task_server");
 function createTask(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const { title, completed } = req.body;
-            yield (0, task_server_1.newTask)(title, completed)
+            const { title } = req.body;
+            yield (0, task_server_1.newTask)(title)
                 .then(result => res.status(200).json(result))
                 .catch(err => res.status(400).json(err));
         }
