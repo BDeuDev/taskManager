@@ -10,7 +10,7 @@ const Task = database_1.default.define('Task', {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
     },
     title: {
         type: sequelize_1.DataTypes.STRING(255),

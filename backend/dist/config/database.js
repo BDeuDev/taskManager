@@ -16,7 +16,7 @@ const sequelize = new sequelize_1.Sequelize({
     },
     define: {
         freezeTableName: true,
-        timestamps: false
+        timestamps: true
     }
 });
 exports.default = sequelize;

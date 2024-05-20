@@ -6,7 +6,7 @@ const Task = sequelize.define('Task',{
         type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
       },
     title: {
         type: DataTypes.STRING(255),

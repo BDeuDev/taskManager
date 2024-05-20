@@ -15,7 +15,7 @@ const sequelize = new Sequelize({
     },
     define: {
         freezeTableName: true,
-        timestamps: false
+        timestamps: true
     }
 });
 
