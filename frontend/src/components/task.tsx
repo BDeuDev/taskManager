@@ -6,7 +6,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
 import { VITE_URL_BASE } from '../config/config';
 
-const Task: React.FC<ITask> = ({ title,id,completed}) => {
+const Task: React.FC<ITask> = ({ title,id}) => {
   // Función para manejar el clic en el IconButton
   const deleteTask = async() => {
     try {
